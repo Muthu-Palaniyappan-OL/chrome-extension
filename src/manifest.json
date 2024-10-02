@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Chrome Extension",
+  "description": "",
+  "version": "0.0.1",
+  "icons": {
+    "16": "public/logo.svg",
+    "48": "public/logo.svg",
+    "128": "public/logo.svg"
+  },
+  "options_page": "pages/options/index.html",
+  "action": {
+    "default_title": "Chrome Addon v3 Starter",
+    "default_popup": "pages/popup/index.html"
+  },
+  "permissions": [
+    "activeTab",
+    "background",
+    "clipboardRead",
+    "clipboardWrite",
+    "runtime",
+    "storage",
+    "system.storage",
+    "tabs",
+    "unlimitedStorage"
+  ],
+  "background": {
+    "service_worker": "background/index.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.chrome.com/*"],
+      "js": ["content/index.js"]
+    }
+  ]
+}
